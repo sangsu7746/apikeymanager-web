@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>사용 가이드 — APIKeyManager</title>
+  <meta name="description" content="APIKeyManager 설치 및 사용 방법 가이드. API 키 저장, 복사, 프로젝트 관리까지 단계별로 설명합니다.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html" style="color:inherit;">🔑 <span>APIKey</span>Manager</a></div>
+    <div class="nav-links">
+      <a href="index.html">홈</a>
+      <a href="guide.html">가이드</a>
+      <a href="contact.html">문의</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="prose">
+
+    <h1 style="font-size:28px; margin-bottom:8px;">사용 가이드</h1>
+    <p style="color:var(--text2); margin-bottom:36px;">APIKeyManager를 처음 사용하시는 분들을 위한 단계별 안내입니다.</p>
+
+    <h2>1. 다운로드 및 실행</h2>
+    <p>
+      APIKeyManager는 설치가 필요 없는 단일 실행 파일(.exe)입니다.
+      다운로드 후 바로 실행하면 됩니다.
+    </p>
+    <ul>
+      <li>지원 OS: Windows 10 / Windows 11 (64bit)</li>
+      <li>별도 설치 불필요 — 파일 하나로 실행</li>
+      <li>최초 실행 시 Windows Defender 경고가 나올 수 있습니다. <br>
+          "추가 정보 → 실행" 을 클릭하면 정상 실행됩니다.</li>
+    </ul>
+    <div class="info-box">
+      💡 최초 실행 시 Windows Credential Manager에 마스터 암호화 키가 자동으로 생성됩니다. 이 키는 API 키를 암호화하는 데 사용됩니다.
+    </div>
+
+    <h2>2. 서비스 선택</h2>
+    <p>
+      왼쪽 사이드 패널에서 관리할 서비스를 선택합니다.
+    </p>
+    <ul>
+      <li>원하는 서비스 카드를 클릭하면 체크박스가 활성화됩니다</li>
+      <li><strong>전체 선택</strong> 버튼으로 모든 서비스를 한 번에 선택할 수 있습니다</li>
+      <li>필요한 서비스만 골라서 사용하는 것을 권장합니다</li>
+    </ul>
+
+    <h2>3. 프로젝트 이름 설정</h2>
+    <p>
+      "▶ 자동화 시작" 버튼을 클릭하면 프로젝트 이름 입력 창이 나타납니다.
+    </p>
+    <ul>
+      <li>프로젝트 이름을 입력하면 해당 이름으로 API 키가 저장됩니다<br>
+          예: <code>내프로젝트_20260615_1430</code></li>
+      <li>비워두면 서비스명 + 날짜로 자동 생성됩니다<br>
+          예: <code>auto_anthropic_20260615_1430</code></li>
+      <li>같은 서비스에 동일한 이름이 있으면 중복 경고가 표시됩니다</li>
+    </ul>
+
+    <h2>4. 자동화 실행</h2>
+    <p>
+      자동화가 시작되면 브라우저가 열리고 서비스 콘솔로 이동합니다.
+    </p>
+    <ul>
+      <li>로그인이 필요한 경우 브라우저에서 직접 로그인하세요 (최대 2분 대기)</li>
+      <li>로그인 완료 후 API 키 생성이 자동으로 진행됩니다</li>
+      <li>실행 로그 탭에서 진행 상황을 실시간으로 확인할 수 있습니다</li>
+    </ul>
+    <div class="info-box">
+      ⚠️ 브라우저 자동화 중에는 마우스나 키보드로 브라우저를 조작하지 마세요. 자동화가 중단될 수 있습니다.
+    </div>
+
+    <h2>5. 저장된 키 확인 및 복사</h2>
+    <p>
+      자동화가 완료되면 "저장된 키" 탭에서 발급된 키를 확인할 수 있습니다.
+    </p>
+    <ul>
+      <li>각 키 이름 오른쪽의 <strong>📋 복사</strong> 버튼을 클릭하면 클립보드에 복사됩니다</li>
+      <li>키 값은 화면에 표시되지 않아 보안이 유지됩니다</li>
+      <li>복사 후 하단 상태바에 "복사됨" 메시지가 표시됩니다</li>
+    </ul>
+
+    <h2>자주 묻는 질문 (FAQ)</h2>
+
+    <h3>Q. API 키가 안전하게 저장되나요?</h3>
+    <p>
+      네. APIKeyManager는 Fernet(AES-128-CBC + HMAC-SHA256) 방식으로 API 키를 암호화합니다.
+      마스터 암호화 키는 Windows Credential Manager에 저장되며, 평문 API 키는 절대 디스크에 기록되지 않습니다.
+    </p>
+
+    <h3>Q. 로그인 정보도 저장되나요?</h3>
+    <p>
+      로그인 정보(이메일, 비밀번호)는 저장되지 않습니다. 브라우저 세션(쿠키)만 로컬에 저장되어 재실행 시 자동 로그인에 활용됩니다.
+    </p>
+
+    <h3>Q. .env 파일이 자동으로 업데이트된다고 하는데, 어떤 파일인가요?</h3>
+    <p>
+      APIKeyManager가 실행되는 폴더의 <code>.env</code> 파일에 API 키가 자동으로 기록됩니다.
+      예: <code>ANTHROPIC_API_KEY=sk-ant-...</code>
+    </p>
+
+    <h3>Q. 여러 프로젝트의 키를 따로 관리할 수 있나요?</h3>
+    <p>
+      네. 자동화 시작 시 프로젝트 이름을 다르게 입력하면 각 프로젝트의 키가 독립적으로 저장됩니다.
+      저장된 키 탭에서 서비스별로 모든 키 목록을 확인할 수 있습니다.
+    </p>
+
+    <h3>Q. 중단 버튼을 눌렀는데 브라우저가 계속 열려 있어요.</h3>
+    <p>
+      중단 버튼은 다음 작업을 중지합니다. 현재 진행 중인 브라우저 작업이 완료된 후 종료됩니다.
+      즉시 종료가 필요하다면 브라우저 창을 직접 닫아도 됩니다.
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">홈</a>
+    <a href="guide.html">가이드</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="contact.html">문의</a>
+  </div>
+  <p>© 2026 APIKeyManager. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
