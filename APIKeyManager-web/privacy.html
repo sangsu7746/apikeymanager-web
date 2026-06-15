@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보처리방침 — APIKeyManager</title>
+  <meta name="description" content="APIKeyManager 개인정보처리방침. 수집하는 정보, 이용 목적, 보관 기간에 대해 안내합니다.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html" style="color:inherit;">🔑 <span>APIKey</span>Manager</a></div>
+    <div class="nav-links">
+      <a href="index.html">홈</a>
+      <a href="guide.html">가이드</a>
+      <a href="contact.html">문의</a>
+    </div>
+  </div>
+</nav>
+
+<section>
+  <div class="prose">
+
+    <h1 style="font-size:28px; margin-bottom:4px;">개인정보처리방침</h1>
+    <p style="color:var(--text2); margin-bottom:36px;">Privacy Policy · 최종 업데이트: 2026년 6월 15일</p>
+
+    <p>
+      APIKeyManager(이하 "서비스")는 이용자의 개인정보를 중요시하며, 관련 법률을 준수합니다.
+      본 방침은 서비스 이용 시 수집되는 정보와 그 처리 방법을 설명합니다.
+    </p>
+
+    <h2>1. 수집하는 정보</h2>
+    <p>APIKeyManager 앱은 다음 정보를 <strong>로컬 기기에만</strong> 저장합니다.</p>
+    <ul>
+      <li><strong>API 키</strong> — 암호화된 형태로 로컬 vault 파일에 저장. 외부 서버로 전송되지 않습니다.</li>
+      <li><strong>브라우저 세션 쿠키</strong> — 자동 로그인을 위해 로컬에 저장. 외부 전송 없음.</li>
+      <li><strong>실행 로그</strong> — 앱 동작 기록. 로컬에만 저장됩니다.</li>
+    </ul>
+    <div class="info-box">
+      본 앱은 어떠한 개인 식별 정보도 외부 서버로 전송하지 않습니다.
+    </div>
+
+    <h2>2. 정보 이용 목적</h2>
+    <ul>
+      <li>API 키의 안전한 암호화 저장 및 복원</li>
+      <li>서비스 콘솔 자동 로그인 (세션 유지)</li>
+      <li>개발 환경 .env 파일 자동 업데이트</li>
+    </ul>
+
+    <h2>3. 정보 보관 및 파기</h2>
+    <p>
+      모든 데이터는 사용자의 로컬 기기에 저장됩니다.
+      앱 폴더 내 <code>vault/keys.vault</code> 파일을 삭제하면 저장된 모든 API 키가 영구 삭제됩니다.
+      Windows Credential Manager의 마스터 키(<code>api_automator_v1</code>)도 별도로 삭제할 수 있습니다.
+    </p>
+
+    <h2>4. 제3자 서비스</h2>
+    <p>본 웹사이트는 다음 제3자 서비스를 사용할 수 있습니다.</p>
+    <ul>
+      <li><strong>Google AdSense</strong> — 광고 표시 목적. Google의 개인정보처리방침이 적용됩니다.</li>
+      <li><strong>Google Analytics</strong> — 방문자 통계 목적 (익명 처리).</li>
+    </ul>
+    <p>각 제3자 서비스의 개인정보처리방침은 해당 서비스 사이트에서 확인하세요.</p>
+
+    <h2>5. 쿠키 정책</h2>
+    <p>
+      본 웹사이트는 방문자 통계 및 광고 서비스를 위해 쿠키를 사용할 수 있습니다.
+      브라우저 설정에서 쿠키를 거부할 수 있으나, 일부 기능이 제한될 수 있습니다.
+    </p>
+
+    <h2>6. 이용자의 권리</h2>
+    <ul>
+      <li>개인정보 열람, 수정, 삭제를 요청할 권리</li>
+      <li>로컬 저장 데이터는 앱 폴더 삭제로 직접 제거 가능</li>
+      <li>관련 문의: <a href="contact.html">문의 페이지</a>를 이용하세요</li>
+    </ul>
+
+    <h2>7. 방침 변경</h2>
+    <p>
+      개인정보처리방침이 변경될 경우 본 페이지에 게시하여 공지합니다.
+      정기적으로 확인하시기를 권장합니다.
+    </p>
+
+    <h2>8. 문의</h2>
+    <p>
+      개인정보 관련 문의사항은 <a href="contact.html">문의 페이지</a>를 통해 연락해 주세요.
+    </p>
+
+    <hr style="border:none; border-top:1px solid var(--border); margin:40px 0;">
+
+    <h2 style="color:var(--text2); font-size:18px;">Privacy Policy (English)</h2>
+    <p style="color:var(--text2);">
+      APIKeyManager stores all data locally on your device. No personal information is transmitted to external servers.
+      API keys are encrypted using Fernet (AES-128-CBC + HMAC-SHA256). The master key is stored in Windows Credential Manager.
+      This website may use Google AdSense for advertising and Google Analytics for anonymous traffic statistics.
+      For any privacy-related inquiries, please visit our <a href="contact.html">contact page</a>.
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">홈</a>
+    <a href="guide.html">가이드</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="contact.html">문의</a>
+  </div>
+  <p>© 2026 APIKeyManager. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
